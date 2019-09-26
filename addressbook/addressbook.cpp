@@ -95,7 +95,7 @@ string SecondAdd(string a)
 
 
 
-int main(int argc, char *argv[])//
+int main(int argc, char *argv[])//"D:/in.txt""D:/out.txt"
 {
 	ifstream ifs(argv[1]);
 	string x;
@@ -119,7 +119,7 @@ int main(int argc, char *argv[])//
 		Name = x.substr(2, i - 2);
 		i++;
 		for (int j = i; j < (int)x.size()-11; j++)
-			if (x[j] == '1'&&x[j + 5]>='1'&&x[j+5]<='9')
+			if (x[j] == '1'&&x[j + 5]>='0'&&x[j+5]<='9')
 			{
 				if (j < (int)x.size() - 11)
 					Num = x.substr(j, 11);

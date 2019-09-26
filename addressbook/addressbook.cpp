@@ -154,7 +154,7 @@ int main(int argc, char *argv[])//"D:/in.txt""D:/out.txt"
 			{
 				i -= 4;
 			}
-		int a1 = Add1.length();
+		int a1 = (int)Add1.size();
 		if (a1 > 4)
 			i += (a1 - 6);
 		if (i < (int)x.size() - 2)
@@ -169,7 +169,7 @@ int main(int argc, char *argv[])//"D:/in.txt""D:/out.txt"
 		}
 		else
 		{
-			int a2 = Add2.length();
+			int a2 = (int)Add2.size();
 			if (a2 > 4)
 				i += (a2 - 6);
 			if (i <= (int)x.size() - 4)

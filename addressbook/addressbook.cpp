@@ -95,12 +95,12 @@ string SecondAdd(string a)
 
 
 
-int main(int argc, char *argv[])
+int main(int argc, char *argv[])//argv[1]argv[2]
 {
-	ifstream ifs(argv[1]);
+	ifstream ifs("D:/in.txt");
 	string x;
 	int count = 0;
-	ofstream ofs(argv[2]);
+	ofstream ofs("D:/out.txt");
 	ofs << "[";
 	while (getline(ifs, x))
 	{
@@ -118,8 +118,8 @@ int main(int argc, char *argv[])
 			;
 		Name = x.substr(2, i - 2);
 		i++;
-		for (int j = i; j < (int)x.size(); j++)
-			if (x[j] == '1'&&isdigit(x[j + 5]))
+		for (int j = i; j < (int)x.size()-11; j++)
+			if (x[j] == '1'&&x[j + 5]>='1'&&x[j+5]<='9')
 			{
 				if (j < (int)x.size() - 11)
 					Num = x.substr(j, 11);

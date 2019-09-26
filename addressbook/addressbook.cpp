@@ -95,12 +95,12 @@ string SecondAdd(string a)
 
 
 
-int main(int argc, char *argv[])//argv[1]argv[2]
+int main(int argc, char *argv[])//
 {
-	ifstream ifs("D:/in.txt");
+	ifstream ifs(argv[1]);
 	string x;
 	int count = 0;
-	ofstream ofs("D:/out.txt");
+	ofstream ofs(argv[2]);
 	ofs << "[";
 	while (getline(ifs, x))
 	{

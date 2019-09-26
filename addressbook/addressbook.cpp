@@ -118,17 +118,32 @@ int main(int argc, char *argv[])//"D:/in.txt""D:/out.txt"
 			;
 		Name = x.substr(2, i - 2);
 		i++;
-		for (int j = i; j < (int)x.size()-11; j++)
-			if (x[j] == '1'&&x[j + 5]>='0'&&x[j+5]<='9')
+		for (int j = i, count = 0,flag=0,e=0;x[j]!='\0' ; j++)
+		{
+			if (x[j] >= '0'&&x[j]<='9')
 			{
-				if (j < (int)x.size() - 11)
-					Num = x.substr(j, 11);
-				int k = j + 11;
-				for (; x[k] != '.'; k++, j++)
-					x[j] = x[k];
-				x[j] = '.';
-				break;
+				if (flag == 0)
+				{
+					flag = 1;
+					e = j;
+				}
+				count++;
+				if (count == 11)
+				{
+					Num = x.substr(e, 11);
+					int k = e + 11;
+					for (; x[k] != '.'; k++, e++)
+						x[e] = x[k];
+					x[e] = '.';
+					break;
+				}
 			}
+			else
+			{
+				flag = 0;
+				count = 0;
+			}
+		}
 		string add1, add2, add3, add4, add5;
 		if (i < (int)x.size() - 4)
 			add1 = x.substr(i, 4);

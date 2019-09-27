@@ -220,7 +220,7 @@ int main(int argc, char *argv[])//"D:/in.txt""D:/out.txt"
 				i = j;
 			for (; i < (int)x.size() - 2; i++)
 			{
-				if (x.substr(i, 2) == "路" || x.substr(i, 2) == "村")
+				if (x.substr(i, 2) == "路" || x.substr(i, 2) == "村" || x.substr(i, 2) == "道")
 				{
 					Add5 = x.substr(j, i - j + 2);
 					i += 2;

@@ -101,7 +101,7 @@ int main(int argc, char *argv[])//"D:/in.txt""D:/out.txt"
 	string x;
 	int count = 0;
 	ofstream ofs(argv[2]);
-	ofs << "[";
+	ofs << "[\n";
 	while (getline(ifs, x))
 	{
 		x = Utf8ToGbk(x.c_str());
@@ -111,9 +111,9 @@ int main(int argc, char *argv[])//"D:/in.txt""D:/out.txt"
 			ofs << endl;
 		int i = 2;
 		string Name, Num, Add1, Add2, Add3, Add4, Add5;
-		string xm = "{\" 姓名\" : \"";
-		string sj = "\",\"手机\" : \"";
-		string dz = "\",\"地址\" : [\"";
+		string xm = "\t{\n\t\t\"姓名\": \"";
+		string sj = "\",\n\t\t\"手机\": \"";
+		string dz = "\",\n\t\t\"地址\": [\n\t\t\t\"";
 		for (; x[i] != ','; i++)
 			;
 		Name = x.substr(2, i - 2);
@@ -178,7 +178,7 @@ int main(int argc, char *argv[])//"D:/in.txt""D:/out.txt"
 		int j = i;
 		for (; i < (int)x.size() - 2; i += 2)
 		{
-			if (x.substr(i, 2) == "区" || x.substr(i, 2) == "县" || x.substr(i, 2) == "旗")
+			if (x.substr(i, 2) == "区" || x.substr(i, 2) == "县" || x.substr(i, 2) == "旗" || x.substr(i, 2) == "市")
 			{
 				Add3 = x.substr(j, i - j + 2);
 				i += 2;
@@ -211,7 +211,7 @@ int main(int argc, char *argv[])//"D:/in.txt""D:/out.txt"
 			Add3 = GbkToUtf8(Add3.c_str());
 			Add4 = GbkToUtf8(Add4.c_str());
 			Add5 = GbkToUtf8(Add5.c_str());
-			ofs << GbkToUtf8(xm.c_str()) << Name << GbkToUtf8(sj.c_str()) << Num << GbkToUtf8(dz.c_str()) << Add1 << "\",\"" << Add2 << "\",\"" << Add3 << "\",\"" << Add4 << "\",\"" << Add5 << "\"]}";
+			ofs << GbkToUtf8(xm.c_str()) << Name << GbkToUtf8(sj.c_str()) << Num << GbkToUtf8(dz.c_str()) << Add1 << "\",\n\t\t\t\"" << Add2 << "\",\n\t\t\t\"" << Add3 << "\",\n\t\t\t\"" << Add4 << "\",\n\t\t\t\"" << Add5 << "\"\n\t\t]\n\t}";
 		}
 		else if (x[0] == '2' || x[0] == '3')
 		{
@@ -245,7 +245,7 @@ int main(int argc, char *argv[])//"D:/in.txt""D:/out.txt"
 			Add5 = GbkToUtf8(Add5.c_str());
 			Add6 = GbkToUtf8(Add6.c_str());
 			Add7 = GbkToUtf8(Add7.c_str());
-			ofs << GbkToUtf8(xm.c_str()) << Name << GbkToUtf8(sj.c_str()) << Num << GbkToUtf8(dz.c_str()) << Add1 << "\",\"" << Add2 << "\",\"" << Add3 << "\",\"" << Add4 << "\",\"" << Add5 << "\",\"" << Add6 << "\",\"" << Add7 << "\"]}";
+			ofs << GbkToUtf8(xm.c_str()) << Name << GbkToUtf8(sj.c_str()) << Num << GbkToUtf8(dz.c_str()) << Add1 << "\",\n\t\t\t\"" << Add2 << "\",\n\t\t\t\"" << Add3 << "\",\n\t\t\t\"" << Add4 << "\",\n\t\t\t\"" << Add5 << "\",\n\t\t\t\"" << Add6 << "\",\n\t\t\t\"" << Add7 << "\"\n\t\t]\n\t}";
 		}
 		count++;
 	}
